@@ -26,6 +26,9 @@ class CounterTestCase(unittest.TestCase):
         val = self.r.get("test")
         self.assertIs(val, None, "db didn't flush")
 
+    def test_healthcheck(self):
+        r = self.app.get("/_healthcheck")
+        self.assertEquals(r.status_code, 200)
 
 if __name__ == '__main__':
     unittest.main()

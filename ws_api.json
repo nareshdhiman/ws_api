@@ -27,7 +27,7 @@
             "gracePeriodSeconds": 5,
             "intervalSeconds": 20,
             "maxConsecutiveFailures": 3,
-            "path": "/",
+            "path": "/_healthcheck",
             "portIndex": 0,
             "protocol": "HTTP"
         }

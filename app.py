@@ -2,7 +2,7 @@ import socket
 from os import getenv
 import redis
 
-from flask import Flask, jsonify, g
+from flask import Flask, jsonify, g, abort
 
 
 app = Flask(__name__)
@@ -26,6 +26,14 @@ def index():
 def key(key):
     r = init_db()
     return jsonify(counter=r.incr(key))
+
+@app.route("/_healthcheck")
+def healthcheck():
+    ok = init_db().ping()
+    if not ok:
+        abort(500)
+    return "OK", 200
+
 
 @app.route("/_reset", methods=["POST"])
 def reset():
