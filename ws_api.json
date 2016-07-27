@@ -1,0 +1,30 @@
+{
+    "container": {
+        "docker": {
+            "image": "wercker/api:dcos",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 5002,
+                    "hostPort": 5000,
+                    "protocol": "tcp"
+                }
+            ]
+        },
+        "type": "DOCKER"
+    },
+    "cpus": 0.1,
+    "healthChecks": [
+        {
+            "gracePeriodSeconds": 5,
+            "intervalSeconds": 20,
+            "maxConsecutiveFailures": 3,
+            "path": "/",
+            "portIndex": 0,
+            "protocol": "HTTP"
+        }
+    ],
+    "id": "todo-service",
+    "instances": 1,
+    "mem": 64
+}

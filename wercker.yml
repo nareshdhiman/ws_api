@@ -17,3 +17,25 @@ build:
       password: $DOCKER_PASSWORD
       repository: wercker/api
       cmd: "python /pipeline/source/app.py"
+	- script:
+        name: forward deployment scripts
+        code: cp ws_api.json $WERCKER_OUTPUT_DIR/
+
+
+deploy-to-dcos:
+  box:
+    id: buildpack-deps:jessie
+  steps:
+    - script:
+        name: generate forward deploy script
+        cwd: deployment
+        code: |
+            cat ws_api.json
+    - script:
+        name: marathon deploy
+        cwd: deployment
+        code: |
+            curl --fail --write-out "\n\nStatus code: %{http_code}\n" \
+            -H "Authorization: token=${TOKEN}" -H "Content-type: application/json" \
+            -X POST -d @ws_api.json $MARATHON_URL
+
