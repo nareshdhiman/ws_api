@@ -14,6 +14,7 @@
                 }
             ]
         },
+        "forcePullImage": true,
         "type": "DOCKER"
     },
     "cpus": 0.1,
@@ -21,7 +22,6 @@
         "REDIS_HOST": "10.0.0.50",
         "REDIS_PORT": "6380"
     },
-    "forcePullImage": true,
     "healthChecks": [
         {
             "gracePeriodSeconds": 5,
