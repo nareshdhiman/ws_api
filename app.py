@@ -2,27 +2,36 @@ import socket
 from os import getenv
 import redis
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, g
 
 
-MAIN_KEY="main"
 app = Flask(__name__)
-app.debug = True
+app.config.update(dict(
+    DEBUG=True,
+    REDIS_HOST='redis',
+    REDIS_PORT='6379'
+))
+app.config.from_envvar('APP_SETTINGS', silent=True)
+
+def init_db():
+    if not hasattr(g, 'redis'):
+        g.redis =  redis.StrictRedis(db=0, host=app.config['REDIS_HOST'], port=app.config['REDIS_PORT'])
+    return g.redis
 
 @app.route("/")
 def index():
-    return jsonify(counter=r.incr(MAIN_KEY))
+    pass
 
+@app.route("/key/<key>")
+def key(key):
+    r = init_db()
+    return jsonify(counter=r.incr(key))
+
+@app.route("/_reset", methods=["POST"])
+def reset():
+    r = init_db()
+    r.flushdb()
+    return "", 204
 
 if __name__ == "__main__":
-    services = {
-        'redis': {
-            'host': getenv('REDIS_HOST', 'redis'),
-            'port': getenv('REDIS_PORT', '6379'),
-        }
-    }
-
-    print "is redis host: ", services['redis']
-    r = redis.StrictRedis(db=0, **services['redis'])
-    print r.get(MAIN_KEY)
     app.run(host="0.0.0.0", port=5002)
