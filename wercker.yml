@@ -38,4 +38,3 @@ deploy-to-dcos:
             curl --fail --write-out "\n\nStatus code: %{http_code}\n" \
             -H "Authorization: token=${TOKEN}" -H "Content-type: application/json" \
             -X POST -d @ws_api.json $MARATHON_URL
-
