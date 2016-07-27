@@ -18,7 +18,6 @@
     },
     "cpus": 0.1,
     "env": {
-        "ENV": "DEV",
         "REDIS_HOST": "mrredis.mesos",
         "REDIS_PORT": "5656"
     },
@@ -33,10 +32,10 @@
             "protocol": "HTTP"
         }
     ],
-    "id": "ws-api",
+    "id": "/counter",
     "instances": 1,
     "labels": {
-        "DCOS_SERVICE_NAME": "ws_api",
+        "DCOS_SERVICE_NAME": "counter",
         "DCOS_SERVICE_PORT_INDEX": "0",
         "DCOS_SERVICE_SCHEME": "http"
     },
