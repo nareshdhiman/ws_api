@@ -27,7 +27,6 @@ deploy-to-dcos:
   steps:
     - script:
         name: generate forward deploy script
-        cwd: deployment
         code: |
             cat ws_api.json
     - script:
