@@ -1,7 +1,7 @@
 {
     "container": {
         "docker": {
-            "image": "mwhooker/ws_api:dcos",
+            "image": "mwhooker/ws_api:latest",
             "network": "BRIDGE",
             "portMappings": [
                 {
