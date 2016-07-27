@@ -19,9 +19,10 @@
     "cpus": 0.1,
     "env": {
         "ENV": "DEV",
-        "REDIS_HOST": "mrredis.marathon.mesos",
+        "REDIS_HOST": "mrredis.mesos",
         "REDIS_PORT": "5656"
     },
+    "forcePullImage": true,
     "healthChecks": [
         {
             "gracePeriodSeconds": 5,
