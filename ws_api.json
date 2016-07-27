@@ -18,8 +18,8 @@
     },
     "cpus": 0.1,
     "env": {
-        "REDIS_HOST": "mrredis.mesos",
-        "REDIS_PORT": "5454"
+        "REDIS_HOST": "10.0.0.50",
+        "REDIS_PORT": "6380"
     },
     "forcePullImage": true,
     "healthChecks": [
