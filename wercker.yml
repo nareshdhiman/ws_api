@@ -16,11 +16,10 @@ build:
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
       repository: wercker/api
-      cmd: "python /pipeline/source/app.py"
-	- script:
+      cmd: python /pipeline/source/app.py
+    - script:
         name: forward deployment scripts
         code: cp ws_api.json $WERCKER_OUTPUT_DIR/
-
 
 deploy-to-dcos:
   box:
