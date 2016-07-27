@@ -1,5 +1,5 @@
 import socket
-import os
+from os import getenv
 import redis
 
 from flask import Flask, jsonify
@@ -15,8 +15,14 @@ def index():
 
 
 if __name__ == "__main__":
-    host = socket.gethostbyname("mrredis.mesos")
-    print "is redis host: ", host
-    r = redis.StrictRedis(host=host, port=5656, db=0)
+    services = {
+        'redis': {
+            'host': getenv('REDIS_HOST', 'redis'),
+            'port': getenv('REDIS_PORT', '6379'),
+        }
+    }
+
+    print "is redis host: ", services['redis']
+    r = redis.StrictRedis(db=0, **services['redis'])
     print r.get(MAIN_KEY)
     app.run(host="0.0.0.0", port=5002)
