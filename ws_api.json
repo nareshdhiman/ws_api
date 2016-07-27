@@ -1,7 +1,7 @@
 {
     "container": {
         "docker": {
-            "image": "wercker/api:dcos",
+            "image": "mwhooker/ws_api:dcos",
             "network": "BRIDGE",
             "portMappings": [
                 {
@@ -24,7 +24,7 @@
             "protocol": "HTTP"
         }
     ],
-    "id": "ws_api",
+    "id": "ws-api",
     "instances": 1,
     "mem": 64
 }
