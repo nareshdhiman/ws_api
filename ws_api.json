@@ -4,6 +4,7 @@
     ],
     "container": {
         "docker": {
+            "forcePullImage": true,
             "image": "mwhooker/ws_api:latest",
             "network": "BRIDGE",
             "portMappings": [
@@ -14,7 +15,6 @@
                 }
             ]
         },
-        "forcePullImage": true,
         "type": "DOCKER"
     },
     "cpus": 0.1,
