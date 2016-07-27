@@ -31,7 +31,6 @@ deploy-to-dcos:
             cat ws_api.json
     - script:
         name: marathon deploy
-        cwd: deployment
         code: |
             curl --fail --write-out "\n\nStatus code: %{http_code}\n" \
             -H "Authorization: token=${TOKEN}" -H "Content-type: application/json" \
