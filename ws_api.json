@@ -24,7 +24,7 @@
             "protocol": "HTTP"
         }
     ],
-    "id": "todo-service",
+    "id": "ws_api",
     "instances": 1,
     "mem": 64
 }
