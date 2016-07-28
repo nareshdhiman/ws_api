@@ -19,7 +19,7 @@
     },
     "cpus": 0.1,
     "env": {
-        "APP_SETTINGS": "app.cfg",
+        "APP_SETTINGS": "app.cfg"
     },
     "healthChecks": [
         {
