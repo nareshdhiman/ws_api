@@ -32,7 +32,7 @@
             "protocol": "HTTP"
         }
     ],
-    "id": "/counter",
+    "id": "counter",
     "instances": 1,
     "labels": {
         "DCOS_SERVICE_NAME": "counter",
