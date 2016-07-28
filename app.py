@@ -25,7 +25,7 @@ def index():
 @app.route("/key/<key>")
 def key(key):
     r = init_db()
-    return jsonify(counter=r.incr(key))
+    return jsonify(key=key, counter=r.incr(key))
 
 @app.route("/_healthcheck")
 def healthcheck():
