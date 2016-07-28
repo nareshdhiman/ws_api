@@ -20,7 +20,7 @@ def init_db():
 
 @app.route("/")
 def index():
-    pass
+    return "hello world"
 
 @app.route("/key/<key>")
 def key(key):
