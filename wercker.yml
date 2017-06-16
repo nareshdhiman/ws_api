@@ -15,5 +15,17 @@ build:
     - internal/docker-push:
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
-      repository: wercker/api
+      repository: nareshdhiman/api
       cmd: "python /pipeline/source/app.py"
+      ports: 5002
+     
+dockerhub:
+  box: python:2.7
+  steps:
+  - pip-install
+  - internal/docker-push:
+    username: $DOCKER_USER
+    password: $DOCKER_PASS
+    repository: nareshdhiman/api
+    cmd: "python /pipeline/source/app.py"
+    ports: 5002
