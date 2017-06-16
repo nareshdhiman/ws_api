@@ -13,8 +13,8 @@ build:
   steps:
     - pip-install
     - internal/docker-push:
-      username: $DOCKER_USERNAME
-      password: $DOCKER_PASSWORD
+      username: $DOCKER_USER
+      password: $DOCKER_PASS
       repository: nareshdhiman/api
       cmd: "python /pipeline/source/app.py"
       ports: 5002
